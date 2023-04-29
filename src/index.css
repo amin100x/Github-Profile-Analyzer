@@ -60,6 +60,8 @@ a {
   text-align: center;
 }
 
+
+
 .card:hover {
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
@@ -97,14 +99,14 @@ img {
   overflow: hidden;
 }
 
-#reposInfo {
+.reposInfo {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   margin-top: 20px;
 }
 
-#repoInfo .card {
+.repoInfo .card {
   border: 1px solid #ff0000;
 }
 
@@ -126,4 +128,10 @@ img {
 
 #sortOption {
   font-size: 20px;
+}
+.sort-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }

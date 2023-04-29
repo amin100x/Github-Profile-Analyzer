@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="container">
       <div className="main">
-        <h1>Github Profile Wrapper</h1>
+        <h1>Github Profile Analyzer</h1>
         <input type="text" id="userName" onChange={e => setUserName(e.target.value)} placeholder="Github Username" />
         <button id="showDetails" onClick={ShowDetails}>Show Details</button>
       </div>

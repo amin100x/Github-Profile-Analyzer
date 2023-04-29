@@ -3,28 +3,34 @@ import React, { useEffect, useState } from 'react'
 const ProjectRepos = ({ repo }) => {
     console.log(repo);
 
-    const [Repos, setRepos] = useState([]);
+    let [Repos, setRepos] = useState([]);
     const [SortSelect, SetSortSelect] = useState("");
     useEffect(() => {
-        setRepos(repo)
+        setRepos(repo);
     })
 
-    console.log(SortSelect);
+    if (SortSelect === "stars") {
+        Repos = Repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+    }
+    else if (SortSelect === "forks") {
+        Repos = Repos.sort((a, b) => b.forks - a.forks);
+    } else if (SortSelect === "size") {
+        Repos = Repos.sort((a, b) => b.size - a.size);
+    }
     return (
         <div>
             <div className="sort-container">
                 <span className="headline">Top repositories by: </span>
                 <select id="sortOption" onChange={e => SetSortSelect(e.target.value)}>
+                    <option value=""></option>
                     <option value="stars">Stars</option>
                     <option value="forks">Forks</option>
                     <option value="size">Size</option>
                 </select>
             </div>
-
-            {repo.map((rep) => {
-                return <div className="repoCard">
-
-                    <div className="card" >
+            <div className="reposInfo">
+                {Repos.map((rep) => {
+                    return <div className="card" >
                         <div className="card-body">
                             <div className="card-title">{rep.name}</div>
                             {
@@ -54,8 +60,8 @@ const ProjectRepos = ({ repo }) => {
                             </div>
                         </div>
                     </div>
-                </div>
-            })}
+                })}
+            </div>
         </div >
     )
 }
